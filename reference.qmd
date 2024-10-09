@@ -1,0 +1,22 @@
+---
+title: "Future Scope and Refernces"
+editor: visual
+---
+
+## Future Enhancements
+
+**Visualizing the Negative Economic Impact of COVID-19 on Tourism**: In addition to the current visualization, there are numerous opportunities to enhance the analysis by incorporating additional data sources and alternative visualization techniques. For instance, we could integrate demographic data, such as population size or tourism statistics, to provide context for the economic losses. This would allow us to assess the impact of losses relative to the population or tourism activity, offering deeper insights into the severity of the economic downturn. Furthermore, exploring different visualization formats, such as line graphs to illustrate trends over time or heat maps to visualize losses geographically, could enhance understanding of the data. By employing interactive visualizations, users could engage with the data more dynamically, filtering by region or loss percentage, thus uncovering patterns that static graphs might not reveal. These enhancements would not only enrich the narrative surrounding the economic impact of COVID-19 but also allow for more comprehensive comparisons across various factors and regions.
+
+**List of Countries and Dependencies by Population:**
+
+Apart from this if we receive more detailed data like population of all the cities in each country we can make a more informative and detailed graph. We can use multiple google maps for zooming out to see the countries and continents and zooming in to see the cities. We can also do a similar thing to drill down where we drill down more for each country to see its cities.
+
+## References
+
+\[1\]HowMuch. (2021, March 16). *High tourism countries’ income loss due to the pandemic*. <https://howmuch.net/articles/high-tourism-countries-income-loss-due-to-pandemic>
+
+\[2\]Wikimedia Commons. (n.d.). *Global population cartogram* \[Cartogram\]. Wikimedia Commons. <https://upload.wikimedia.org/wikipedia/commons/9/90/Global_population_cartogram.png>
+
+\[3\]Wikipedia contributors. (n.d.). *List of countries and dependencies by population*. In *Wikipedia, The Free Encyclopedia*. Retrieved October 9, 2024, from <https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population>
+
+\[4\] R Highcharts Drilldown - How to Create Animated and Interactive Drilldown Charts in R. <https://www.appsilon.com/post/r-highcharts-drilldown>

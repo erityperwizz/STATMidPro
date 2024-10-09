@@ -1,0 +1,28 @@
+---
+title: "STAT Project"
+author: "Jeevani and Erica"
+---
+
+# **Welcome to Our Data Redesigning Project**
+
+This website presents the redesign of data visualizations aimed at improving clarity, insight and interactivity. Created by Jeevani Bhaskar and Erica Mathias, this website showcases a range of visualizations using R.
+
+### **Overview of Pages**
+
+-   Introduction (Current Page): An overview of the website and its goals
+
+-   Visualization Redesign (Page 2): The original visualization is transformed into two distinct visualizations, each emphasizing a better version of original visualization with enhanced interpretation.
+
+-   Interactive Map Redesign (Page 3): This page features an interactive map, design of the original map, allowing to explore the data dynamically.
+
+### Additional Resources
+
+-   Code Repository (Page 4): All the codes used to create these visualization is available in this page, allowing for full reproducibility and further exploration.
+
+-   Future Scope and References (Page 5): What comes next? What other improvements can be made? Along with the references, these questions are addressed on this page.
+
+-   Video Presentation (Page 5) : A link to the video presentation, where we explain the rationale behind each redesign and discuss our findings, is available for a more in-depth understanding of the project.
+
+We hope you find our visualizations insightful and engaging. Feel free to explore each page and review the resources we have included.
+
+Thank you for visiting!

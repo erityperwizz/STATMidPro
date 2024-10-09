@@ -1,0 +1,28 @@
+---
+title: "Visualization Redesign"
+editor: visual
+---
+
+# **Visualizing the Negative Economic Impact of COVID-19 on Tourism**
+
+![Original Visualization](Original.jpg){fig-align="center" width="445"}
+
+\[1\]The visualization depicts the economic loss, measured in billions, experienced by each county between the years 2019 and 2020. It employs a color-coded scheme to illustrate the magnitude of the loss as a percentage, highlighting the impact of COVID-19 restrictions and the subsequent decline in tourism.
+
+While the graph is visually appealing and effectively identifies the counties, it presents challenges in terms of comprehending the comparisons among them. The size of the bubbles used to represent each county's loss can lead to misinterpretations, as the visual scale may not accurately convey the extent of the losses. Although the graph conveys significant information, there are opportunities for enhancement to improve clarity and facilitate a more straightforward comparison between counties.
+
+### **Redesigned Visualizations**
+
+##### Plot 1: Loss comparison between the countries for the year 2019 and 2022
+
+![](plot1_high_res.png){width="665"}
+
+The redesigned graph is presented as a bar plot, which effectively showcases the economic losses incurred by countries in both 2019 and 2020. This format allows for a clear visual comparison of the losses experienced in each year. Each bar represents a specific country, with losses displayed in billions. The exact amounts are prominently labeled on the bars, facilitating immediate understanding of the financial impact.
+
+By illustrating the data side by side for both years, this graph enables viewers to analyze trends and fluctuations in economic loss over the specified period. It provides a clearer picture of how the COVID-19 pandemic affected different countries, highlighting the extent of losses incurred. This enhanced visualization allows for a more nuanced understanding of the economic challenges faced by each country during the pandemic and offers insights into the varying degrees of impact across regions. Overall, the bar plot format enhances clarity and facilitates better analysis of the data, making it easier to identify patterns and make comparisons.
+
+##### Plot 2: Comparative analysis of loss by country in percentage
+
+![](plot2_high_res.png){fig-align="center"}
+
+The graph can also be redesigned using a bar graph format that distinctly highlights the country with the highest economic loss. This graph provides a clear visual representation, making it easy to identify which country experienced the most significant financial impact during the pandemic. By emphasizing the highest loss, viewers gain a straightforward understanding of the economic challenges faced by this country, allowing for a more focused analysis of the data and its implications.

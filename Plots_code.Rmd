@@ -1,0 +1,233 @@
+---
+title: "Untitled"
+author: "Jeevani Bhaskar"
+date: "2024-10-09"
+output: html_document
+---
+
+```{r}
+# Read the CSV file
+data = read.csv("Data.csv")
+```
+
+
+```{r}
+# Preview the data
+head(data)
+```
+
+```{r}
+# Install and load the required packages
+```
+
+
+```{r}
+library(ggplot2)
+```
+
+
+```{r}
+# Filter the data for the years 2019 and 2020
+data_filtered <- data[data$Year %in% c(2019, 2020), ]
+
+# Create a bar plot comparing the losses for 2019 and 2020 by country
+ggplot(data_filtered, aes(x = Country, y = Loss.in.Billion, fill = as.factor(Year))) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Loss Comparison by Country for 2019 and 2020",
+       x = "Country", y = "Loss in Billion", fill = "Year") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Calculate the difference between 2019 and 2020 losses for each country
+library(tidyr) # for spread function
+data_diff <- spread(data_filtered, Year, Loss.in.Billion)
+data_diff$Difference <- data_diff$`2019` - data_diff$`2020`
+
+# Create a bar plot showing the difference in loss between 2019 and 2020
+ggplot(data_diff, aes(x = Country, y = Difference)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  labs(title = "Difference in Loss Between 2019 and 2020 by Country",
+       x = "Country", y = "Difference in Loss (Billion)") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+Take 2
+```{r}
+# Load necessary libraries
+library(ggplot2)
+
+# Create the plot and assign it to an object called plot1
+plot1 = ggplot(data_filtered, aes(x = Country, y = Loss.in.Billion, fill = as.factor(Year))) +
+  geom_bar(stat = "identity", position = "dodge") +
+  
+  # Add text labels on top of the bars showing the exact loss values
+  geom_text(aes(label = Loss.in.Billion), 
+            position = position_dodge(width = 0.9), 
+            vjust = -0.5) +  # Adjust vertical position of labels
+  
+  # Use custom colors: purple for 2019 and yellow for 2020
+  scale_fill_manual(values = c("2019" = "purple", "2020" = "yellow")) +
+  
+  # Set labels and theme
+  labs(title = "Loss Comparison by Country for 2019 and 2020",
+       x = "Country", y = "Loss in Billion", fill = "Year") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+print(plot1)
+```
+
+```{r}
+ggsave("C:\\Users\\jeeva\\OneDrive\\Desktop\\STAT - First sem\\Mid Project\\Mid Project\\plot1_high_res.png", plot = plot1, dpi = 300, width = 14, height = 8, units = "in")
+```
+
+
+```{r}
+# Load necessary libraries
+library(tidyr)  # for spread function
+library(ggplot2)  # for plotting
+
+# Spread data to have years as columns
+data_diff <- spread(data_filtered, Year, Loss.in.Billion)
+
+# Calculate the difference
+data_diff$Difference <- data_diff$`2019` - data_diff$`2020`
+
+# Create a bar plot showing the difference in loss between 2019 and 2020
+ggplot(data_diff, aes(x = Country, y = Difference)) +
+  geom_bar(stat = "identity", fill = "brown2") +
+  labs(title = "Comparative Analysis of Loss by Country",  # Fixed spelling of 'Comparative'
+       x = "Country", y = "Difference in Loss (Billion)") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        plot.title = element_text(hjust = 0.5)) +  # Center the title
+  geom_text(aes(label = Difference), vjust = -0.5, color = "black")  # Add values on top of the bars
+
+
+```
+```{r}
+# Load necessary libraries
+library(tidyr)  # for spread function
+library(ggplot2)  # for plotting
+
+# Spread data to have years as columns
+data_diff <- spread(data_filtered, Year, Loss.in.Billion)
+
+# Calculate the absolute percentage difference
+data_diff$Percentage_Difference <- (abs(data_diff$`2020` - data_diff$`2019`) / data_diff$`2019`) * 100
+
+# Create a bar plot showing the absolute percentage difference in loss between 2019 and 2020
+ggplot(data_diff, aes(x = Country, y = Percentage_Difference)) +
+  geom_bar(stat = "identity", fill = "brown2") +
+  labs(title = "Comparative Analysis of Loss by Country in Percentage",
+       x = "Country", y = "Percentage Difference in Loss (%)") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        plot.title = element_text(hjust = 0.5)) +  # Center the title
+  geom_text(aes(label = round(Percentage_Difference, 1)), vjust = -0.5, color = "black")  # Add values on top of the bars
+
+```
+```{r}
+# Load necessary libraries
+library(tidyr)  # for spread function
+library(ggplot2)  # for plotting
+library(dplyr)  # for data manipulation
+
+# Spread data to have years as columns
+data_diff <- spread(data_filtered, Year, Loss.in.Billion)
+
+# Calculate the absolute percentage difference and rename it
+data_diff$Loss_Percentage <- (abs(data_diff$`2020` - data_diff$`2019`) / data_diff$`2019`) * 100
+
+# Create a bar plot showing the absolute percentage difference in loss between 2019 and 2020
+plot2 = ggplot(data_diff, aes(x = reorder(Country, Loss_Percentage), y = Loss_Percentage, fill = Loss_Percentage)) +
+  geom_bar(stat = "identity") +
+  scale_fill_gradient(low = "lightblue", high = "darkblue") +  # Light to dark gradient
+  labs(title = "Comparative Analysis of Loss by Country in Percentage",
+       x = "Country", y = "Loss (%)") +  # Updated y-axis label
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        plot.title = element_text(hjust = 0.5)) +  # Center the title
+  geom_text(aes(label = round(Loss_Percentage, 1)), vjust = -0.5, color = "black")  # Add values on top of the bars
+print(plot2)
+```
+```{r}
+ggsave("C:\\Users\\jeeva\\OneDrive\\Desktop\\STAT - First sem\\Mid Project\\Mid Project\\plot2_high_res.png", plot = plot2, dpi = 300, width = 14, height = 8, units = "in")
+```
+
+```{r}
+options(repos = c(CRAN = "https://cran.rstudio.com/"))
+
+install.packages("plotly")  # Uncomment this line to install the package
+library(plotly)
+
+```
+
+```{r}
+#3 Load necessary libraries
+library(ggplot2)
+library(plotly)
+
+# Create the plot and assign it to an object called plot1
+plot1 <- ggplot(data_filtered, aes(x = Country, y = Loss.in.Billion, fill = as.factor(Year))) +
+  geom_bar(stat = "identity", position = "dodge") +
+  
+  # Add text labels on top of the bars showing the exact loss values
+  geom_text(aes(label = Loss.in.Billion), 
+            position = position_dodge(width = 0.9), 
+            vjust = -0.5) +  # Adjust vertical position of labels
+  
+  # Use custom colors: purple for 2019 and yellow for 2020
+  scale_fill_manual(values = c("2019" = "purple", "2020" = "yellow")) +
+  
+  # Set labels and theme
+  labs(title = "Loss Comparison by Country for 2019 and 2020",
+       x = "Country", y = "Loss in Billion", fill = "Year") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Convert to an interactive plot
+plotly_plot <- ggplotly(plot1)
+
+# Print the interactive plot
+print(plotly_plot)
+```
+```{r}
+install.packages("htmlwidgets")
+```
+
+```{r}
+#3 Load necessary libraries
+library(ggplot2)
+library(plotly)
+# Save the interactive plot as an HTML file
+library(htmlwidgets)
+
+# Create the plot and assign it to an object called plot1
+plot1 <- ggplot(data_filtered, aes(x = Country, y = Loss.in.Billion, fill = as.factor(Year))) +
+  geom_bar(stat = "identity", position = "dodge") +
+  
+  # Add text labels on top of the bars showing the exact loss values
+  geom_text(aes(label = Loss.in.Billion), 
+            position = position_dodge(width = 0.9), 
+            vjust = -0.5) +  # Adjust vertical position of labels
+  
+  # Use custom colors: purple for 2019 and yellow for 2020
+  scale_fill_manual(values = c("2019" = "purple", "2020" = "yellow")) +
+  
+  # Set labels and theme
+  labs(title = "Loss Comparison by Country for 2019 and 2020",
+       x = "Country", y = "Loss in Billion", fill = "Year") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Convert to an interactive plot
+plotly_plot <- ggplotly(plot1)
+
+# Print the interactive plot
+print(plotly_plot)
+
+# Save plot as an HTML file
+saveWidget(plotly_plot, "interactive_plot.html", selfcontained = TRUE)
+
+```
+
+
+```{r}
+```
+

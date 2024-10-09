@@ -1,0 +1,28 @@
+project:
+  type: website
+
+website:
+  title: "Mid Project"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: Redesign.qmd
+        text: Redesign
+      - href: Map.qmd
+        text: Map
+      - href: code.qmd
+        text: Code
+      - href: reference.qmd
+        text: Reference
+      - href: video.qmd
+        text: Video Link
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
